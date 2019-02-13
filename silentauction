@@ -1,1 +1,39 @@
+#-------------------------------------------------------------------------------
+# Name: Revision Auction Program
+# Purpose: The purpose of this program is to take a persons name and bid for
+#          an auction and get the highest bid to see who won the auction.
+# Author:      nina.wong and georgia.vogt
+# Created:     08/02/2019
+#-------------------------------------------------------------------------------
 
+def get_float():
+    choice = int(input("What is your bid?"))
+    return choice
+
+highestBid = 0
+bidCount = 0
+name = ""
+bids = [] 
+names=[]
+
+reservePrice = get_float()
+
+while name.upper() != "F":
+    print("Highest bid so far is:", highestBid)
+    name = input("What is your name?")
+    if name.upper() != "F":
+        bid = get_float()
+        if bid > highestBid:
+            highestBid = bid;1
+            bids.append(bid)
+            names.append(name)
+            bidCount += 1
+        else:
+            print("Sorry" + name + "You'll need to make another higher bid")
+            
+if highestBid >= reservePrice:
+    print("Auction won", names[bidCount - 1], "at", bids[bidCount - 1])
+else:
+    print("Auction not met reserve price")
+    for i in range (bidCount):
+        print(names[i], bids[i])
